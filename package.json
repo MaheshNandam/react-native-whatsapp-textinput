@@ -1,0 +1,35 @@
+{
+  "name": "react-native-whatsapp-textinput",
+  "version": "1.0.3",
+  "description": "React Native TextInput: it has the following features: Dynamic height based on user entered textValue and Scroll to last line while editing multilines",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaheshNandam/react-native-whatsapp-textinput.git"
+  },
+  "keywords": [
+    "\"whatsapp",
+    "textinput\"",
+    "\"react-native\"",
+    "\"react\"",
+    "\"textinput\"",
+    "\"auto",
+    "increment",
+    "textinput\"",
+    "\"animated",
+    "textinput\"",
+    "\"react-native",
+    "textinput\"",
+    "\"android\"",
+    "\"ios\""
+  ],
+  "author": "\"name\": \"Mahesh Nandam\", \"email\": \"maheshnandamdev@gmail.com\"",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaheshNandam/react-native-whatsapp-textinput/issues"
+  },
+  "homepage": "https://github.com/MaheshNandam/react-native-whatsapp-textinput#readme"
+}
