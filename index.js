@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, TextInput, Image, Animated, Keyboard, StyleSheet } from 'react-native';
+import { View, TextInput, Image, Animated, Keyboard, StyleSheet, TouchableOpacity } from 'react-native';
 import DeviceInfo from "react-native-device-info";
 
 export default class WhatsAppTextInput extends Component {
@@ -39,6 +39,14 @@ export default class WhatsAppTextInput extends Component {
         }).start();
     }
 
+    validateTextInput(text){
+        if(text.length === 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     render() {
         return (
             <Animated.View style={{ marginBottom: this.state.keyboardOffset }}>
@@ -52,34 +60,29 @@ export default class WhatsAppTextInput extends Component {
                             multiline={this.props.multiline}
                             placeholder={this.props.placeholderText}
                             placeholderTextColor={this.props.placeholderTextColor}
+                            placeholderStyle={[style.placeholderStyle,{color: this.props.placeholderTextColor}]}
                             underlineColorAndroid='transparent'
                             keyboardType={this.props.keyboardType}
                             value={this.state.text}
-                            onChangeText={editedText => {
-                                this.setState({ text: editedText })
-                            }}
-                            onContentSizeChange={(event) =>
-                                this.setState({
-                                    height: event.nativeEvent.contentSize.height
-                                })
-                            }
-                            style={[style.textInputStyle, {
+                            onChangeText={editedText => { this.setState({ text: editedText })}}
+                            onContentSizeChange={(event) =>this.setState({height: event.nativeEvent.contentSize.height})}
+                            style={[style.textInputStyle,{
                                 height: Math.min(120, Math.max(35, this.state.height)),
                                 backgroundColor: this.props.textInputBgColor,
                                 color: this.props.textColor
                             }]}
-                        // placeholderStyle={{
-                        //     fontSize: 12,
-                        //     color: this.props.placeholderTextColor,
-                        //     textAlignVertical: 'center'
-                        // }}
                         />
                     </View>
-                    <View style={{ justifyContent: 'flex-end' }}>
-                        <View style={[style.sendButtonStyle, { backgroundColor: this.props.sendButtonBgColor }]}>
-                            <Image style={{ width: 30, height: 30 }} source={this.props.sendImage} />
+                    <TouchableOpacity
+                        disabled={this.validateTextInput(this.state.text)}
+                        onPress={this.props.onPress}>
+                        <View style={{ justifyContent: 'flex-end' }}>
+                            <View style={[style.sendButtonStyle, { 
+                                backgroundColor: this.validateTextInput(this.state.text) == true ? this.props.sendButtonBgDisableColor : this.props.sendButtonBgEnableColor }]}>
+                                <Image style={{ width: 30, height: 30 }} source={this.props.sendImage} />
+                            </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </Animated.View>
         );
@@ -119,5 +122,9 @@ const style = StyleSheet.create({
         alignItems: 'center',
         width: 40,
         height: 40
+    },
+    placeholderStyle:{
+        fontSize: 12,
+        textAlignVertical: 'center'
     }
 });
