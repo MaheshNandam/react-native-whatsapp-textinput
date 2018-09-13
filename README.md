@@ -3,20 +3,14 @@
 **React Native WhatsApp TextInput** is a UI Design to show how to create compatible multiline textinput for both **Android**
 and **IOS** with **Validation**.
 
-#
-
 * **Features**:
   * Dynamic height for **textinput** based on **user text**
   * Handling the **keyboard space** when textinput onFocus
   * Sticky send button to end the footerBlock like whatsapp/messenger send button
 
-#
-
 * **Demo Screen**:
 
  <img width="386" height='800'  src="https://user-images.githubusercontent.com/13198616/45509451-3f136780-b7b5-11e8-843f-123744cb86dd.gif">
-
-#
 
 **Code Implementation**:
 
@@ -34,13 +28,9 @@ and **IOS** with **Validation**.
               sendButtonImage={require('./images/sendIcon.png')}
               sendButtonDisableColor={'#f5f5f0'}
               sendButtonEnableColor={'#002080'}
-            />
-            
- #    
+            />  
  
  **Demo repo**: [https://github.com/MaheshNandam/DynamicHeightTextInput](https://github.com/MaheshNandam/DynamicHeightTextInput)
- 
- #
             
 Property | Type | Description
 -- | -- | --
