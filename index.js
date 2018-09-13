@@ -25,9 +25,7 @@ export default class WhatsAppTextInput extends Component {
 
     _keyboardWillShow(e) {
         Animated.spring(this.state.keyboardOffset, {
-            toValue:
-                // e.endCoordinates.height,
-                DeviceInfo.getModel() === "iPhone X" ? e.endCoordinates.height - 34 : e.endCoordinates.height,
+            toValue: DeviceInfo.getModel() === "iPhone X" ? e.endCoordinates.height - 34 : e.endCoordinates.height,
             friction: 8
         }).start();
     }
@@ -73,7 +71,7 @@ export default class WhatsAppTextInput extends Component {
                             style={[styles.textInputStyle, {
                                 height: Math.min(120, Math.max(35, this.state.height)),
                                 backgroundColor: this.props.textInputBgColor,
-                                color: this.props.textColor
+                                color: this.props.messageTextColor
                             }]}
                         />
                     </View>
