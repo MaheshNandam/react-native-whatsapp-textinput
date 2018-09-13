@@ -10,7 +10,7 @@ and **IOS** with **Validation**.
 
 * **Demo Screen**:
 
- <img width="386" height='800'  src="https://user-images.githubusercontent.com/13198616/45509451-3f136780-b7b5-11e8-843f-123744cb86dd.gif">
+ <img width="386" height='800' src="https://user-images.githubusercontent.com/13198616/45514637-83a5ff80-b7c3-11e8-97ae-0e9fe6d65a6d.gif">
 
 **Code Implementation**:
 
