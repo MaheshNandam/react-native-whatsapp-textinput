@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, TextInput, Image, Animated, Keyboard, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, Image, Animated, Keyboard, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import DeviceInfo from "react-native-device-info";
 
 export default class WhatsAppTextInput extends Component {
@@ -25,9 +25,9 @@ export default class WhatsAppTextInput extends Component {
 
     _keyboardWillShow(e) {
         Animated.spring(this.state.keyboardOffset, {
-            toValue: 
-            // e.endCoordinates.height,
-            DeviceInfo.getModel() === "iPhone X" ? e.endCoordinates.height - 34 : e.endCoordinates.height,
+            toValue:
+                // e.endCoordinates.height,
+                DeviceInfo.getModel() === "iPhone X" ? e.endCoordinates.height - 34 : e.endCoordinates.height,
             friction: 8
         }).start();
     }
@@ -39,10 +39,10 @@ export default class WhatsAppTextInput extends Component {
         }).start();
     }
 
-    validateTextInput(text){
-        if(text.length === 0){
+    validateTextInput(text) {
+        if (text.length === 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -50,23 +50,23 @@ export default class WhatsAppTextInput extends Component {
     render() {
         return (
             <Animated.View style={{ marginBottom: this.state.keyboardOffset }}>
-                <View style={[style.textInputParentView, {
+                <View style={[styles.textInputParentView, {
                     borderTopColor: this.props.borderTopColor,
                     backgroundColor: this.props.backgroundColor,
                 }]}>
-                    <View style={style.textInputView}>
+                    <View style={styles.textInputView}>
                         <TextInput
                             editable={this.props.editable}
                             multiline={this.props.multiline}
                             placeholder={this.props.placeholderText}
                             placeholderTextColor={this.props.placeholderTextColor}
-                            placeholderStyle={[style.placeholderStyle,{color: this.props.placeholderTextColor}]}
+                            placeholderStyle={[styles.placeholderStyle, { color: this.props.placeholderTextColor }]}
                             underlineColorAndroid='transparent'
                             keyboardType={this.props.keyboardType}
                             value={this.state.text}
-                            onChangeText={editedText => { this.setState({ text: editedText })}}
-                            onContentSizeChange={(event) =>this.setState({height: event.nativeEvent.contentSize.height})}
-                            style={[style.textInputStyle,{
+                            onChangeText={editedText => { this.setState({ text: editedText }) }}
+                            onContentSizeChange={(event) => this.setState({ height: event.nativeEvent.contentSize.height })}
+                            style={[styles.textInputStyle, {
                                 height: Math.min(120, Math.max(35, this.state.height)),
                                 backgroundColor: this.props.textInputBgColor,
                                 color: this.props.textColor
@@ -76,9 +76,10 @@ export default class WhatsAppTextInput extends Component {
                     <TouchableOpacity
                         disabled={this.validateTextInput(this.state.text)}
                         onPress={this.props.onPress}>
-                        <View style={{ justifyContent: 'flex-end', flex: 1 }}>
-                            <View style={[style.sendButtonStyle, { 
-                                backgroundColor: this.validateTextInput(this.state.text) == true ? this.props.sendButtonBgDisableColor : this.props.sendButtonBgEnableColor }]}>
+                        <View style={styles.buttonPosition}>
+                            <View style={[styles.sendButtonStyle, {
+                                backgroundColor: this.validateTextInput(this.state.text) == true ? this.props.sendButtonBgDisableColor : this.props.sendButtonBgEnableColor
+                            }]}>
                                 <Image style={{ width: 30, height: 30 }} source={this.props.sendImage} />
                             </View>
                         </View>
@@ -90,7 +91,7 @@ export default class WhatsAppTextInput extends Component {
 }
 
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     textInputParentView: {
         flexDirection: 'row',
         paddingHorizontal: 10,
@@ -113,17 +114,22 @@ const style = StyleSheet.create({
         textAlign: 'left',
         borderRadius: 5,
     },
+    buttonPosition: {
+        justifyContent: 'flex-end',
+        flex: 1,
+        ...Platform.select({ android: { marginVertical: 1 } })
+    },
     sendButtonStyle: {
         paddingVertical: 15,
         paddingLeft: 20,
         paddingRight: 15,
-        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        width: 40,
-        height: 40
+        width: 36,
+        height: 36,
+        borderRadius: 18,
     },
-    placeholderStyle:{
+    placeholderStyle: {
         fontSize: 12,
         textAlignVertical: 'center'
     }
