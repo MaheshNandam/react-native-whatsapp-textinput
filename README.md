@@ -57,3 +57,9 @@ sendButtonBgColor | string | send button rounder circle background color
 sendButtonImage | string | send button image
 sendButtonDisableColor | string | disable color for send button
 sendButtonEnableColor | string | enable color for send button
+
+
+
+
+
+
