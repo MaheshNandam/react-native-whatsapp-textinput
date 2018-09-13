@@ -76,7 +76,7 @@ export default class WhatsAppTextInput extends Component {
                     <TouchableOpacity
                         disabled={this.validateTextInput(this.state.text)}
                         onPress={this.props.onPress}>
-                        <View style={{ justifyContent: 'flex-end' }}>
+                        <View style={{ justifyContent: 'flex-end', flex: 1 }}>
                             <View style={[style.sendButtonStyle, { 
                                 backgroundColor: this.validateTextInput(this.state.text) == true ? this.props.sendButtonBgDisableColor : this.props.sendButtonBgEnableColor }]}>
                                 <Image style={{ width: 30, height: 30 }} source={this.props.sendImage} />
