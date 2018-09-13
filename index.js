@@ -80,7 +80,7 @@ export default class WhatsAppTextInput extends Component {
                         onPress={() => this.displayMessage(this.state.messageText)}>
                         <View style={styles.buttonPosition}>
                             <View style={[styles.sendButtonStyle, {
-                                backgroundColor: this.validateTextInput(this.state.messageText) == true ? this.props.sendButtonBgDisableColor : this.props.sendButtonBgEnableColor
+                                backgroundColor: this.validateTextInput(this.state.messageText) == true ? this.props.sendButtonDisableColor : this.props.sendButtonEnableColor
                             }]}>
                                 <Image style={{ width: 30, height: 30 }} source={this.props.sendButtonImage} />
                             </View>

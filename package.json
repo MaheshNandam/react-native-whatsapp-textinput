@@ -1,6 +1,6 @@
 {
   "name": "react-native-whatsapp-textinput",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React Native TextInput: it has the following features: Dynamic height based on user entered textValue and Scroll to last line while editing multilines",
   "main": "index.js",
   "scripts": {
