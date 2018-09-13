@@ -12,9 +12,9 @@ and **IOS** with **Validation**.
 
 #
 
-* **Screens**:
+* **Demo Screen**:
 
-* <img width="386" height='800'  src="https://user-images.githubusercontent.com/13198616/45509451-3f136780-b7b5-11e8-843f-123744cb86dd.gif">
+ <img width="386" height='800'  src="https://user-images.githubusercontent.com/13198616/45509451-3f136780-b7b5-11e8-843f-123744cb86dd.gif">
 
 #
 
