@@ -13,8 +13,8 @@ and **IOS** with **Validation**.
 
 * **Demo Screen**:
 
- <img width="386" height='800' src="https://user-images.githubusercontent.com/13198616/45514637-83a5ff80-b7c3-11e8-97ae-0e9fe6d65a6d.gif">
-
+ <img width="380" height='800' src="https://user-images.githubusercontent.com/13198616/45921366-cc4f6e00-bed1-11e8-88f9-1bb7bdfbf8f7.gif">
+ 
 
 **Code Implementation**:
 
