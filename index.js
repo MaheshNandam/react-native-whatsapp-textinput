@@ -12,7 +12,6 @@ export default class WhatsAppTextInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messageText: '',
             height: 0,
             keyboardOffset: new Animated.Value(0)
         }
@@ -36,18 +35,7 @@ export default class WhatsAppTextInput extends Component {
             friction: 8
         }).start();
     }
-
-    validateTextInput(text) {
-        if (text.length === 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    displayMessage(msg) {
-        alert(msg)
-    }
+ 
 
     render() {
         return (
@@ -65,8 +53,11 @@ export default class WhatsAppTextInput extends Component {
                             placeholderStyle={[styles.placeholderStyle, { color: this.props.placeholderTextColor }]}
                             underlineColorAndroid='transparent'
                             keyboardType={this.props.keyboardType}
-                            value={this.state.messageText}
-                            onChangeText={editedText => { this.setState({ messageText: editedText }) }}
+                            value={this.props.messageText}
+                            onChange={(event)=> { event.target.value }}
+                            onChangeText={editedText => { 
+                                this.props.onChange(editedText)
+                            }}
                             onContentSizeChange={(event) => this.setState({ height: event.nativeEvent.contentSize.height })}
                             style={[styles.textInputStyle, {
                                 height: Math.min(120, Math.max(35, this.state.height)),
@@ -76,11 +67,11 @@ export default class WhatsAppTextInput extends Component {
                         />
                     </View>
                     <TouchableOpacity
-                        disabled={this.validateTextInput(this.state.messageText)}
-                        onPress={() => this.displayMessage(this.state.messageText)}>
+                        disabled={this.props.validateButton()}
+                        onPress={() => this.props.onPressButton()}>
                         <View style={styles.buttonPosition}>
                             <View style={[styles.sendButtonStyle, {
-                                backgroundColor: this.validateTextInput(this.state.messageText) == true ? this.props.sendButtonDisableColor : this.props.sendButtonEnableColor
+                                backgroundColor: this.props.validateButton() == true ? this.props.sendButtonDisableColor : this.props.sendButtonEnableColor
                             }]}>
                                 <Image style={{ width: 30, height: 30 }} source={this.props.sendButtonImage} />
                             </View>
