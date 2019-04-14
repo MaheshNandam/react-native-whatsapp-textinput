@@ -3,6 +3,9 @@
   "version": "0.0.9",
   "description": "React Native TextInput: it has the following features: Dynamic height based on user entered textValue and Scroll to last line while editing multilines",
   "main": "index.js",
+  "dependencies": {
+    "react-native-device-info": "1.4.3"
+  },
   "scripts": {
     "test": "npm start"
   },
